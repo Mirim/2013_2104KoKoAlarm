@@ -49,12 +49,13 @@ public class SettingAlarm extends Activity implements OnClickListener {
 			int minute = picker.getCurrentMinute();// 시용자가 선택한 분
 			int nowHour = (new Date().getHours());// 현재시간
 			int nowMinute = (new Date().getMinutes());// 현재분
+			int nowSec=(new Date().getSeconds());	//현재초
 
 			int time = Math.abs(((nowHour * 3600) + (nowMinute * 60))
 					- ((hour * 3600) + (minute * 60)));
 
 			am.set(AlarmManager.RTC_WAKEUP,
-					(System.currentTimeMillis() + time * 1000), pIntent);
+					(System.currentTimeMillis() + time * 1000)-(nowSec*1000), pIntent);
 			
 			Intent intent1 = new Intent();
 			intent1.putExtra("hour", hour+"");
