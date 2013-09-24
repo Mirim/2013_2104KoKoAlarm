@@ -74,7 +74,7 @@ public class MainActivity extends Activity {
 		Button btnStop=(Button)findViewById(R.id.btnStop);
 		btnStop.setOnClickListener(new OnClickListener() {
 			public void onClick(View v) {
-				if(count>=10){
+				if(count>10){
 					if (player != null) {
 						player.stop();
 					}
